@@ -6,6 +6,7 @@ Este projeto é uma atividade acadêmica desenvolvida para a disciplina de MODER
 
 Aqui está uma prévia de como a página ficou:
 
+![Uploading ecommercejs.gif…]()
 
 
 ## 🎯 Objetivo da Atividade
