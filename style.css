@@ -1,0 +1,236 @@
+/* --- REQUISITO 6b: Cores e Fontes Agradáveis (Configurações Globais) --- */
+:root {
+    --cor-primaria: #007BFF;     /* Azul para botões e links */
+    --cor-secundaria: #28a745;  /* Verde para preços */
+    --cor-fundo: #f4f7f6;        /* Fundo levemente cinza */
+    --cor-texto: #333;          /* Texto escuro (bom contraste) */
+    --cor-branca: #ffffff;
+    --cor-borda: #ddd;
+}
+
+/* Reset básico e Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    /* ADIÇÃO: Transição suave para o modo escuro */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- REQUISITO 6a: Organização Visual (Cabeçalho e Navegação) --- */
+header {
+    background: var(--cor-branca);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid var(--cor-primaria);
+    /* ADIÇÃO: Transição suave */
+    transition: background-color 0.3s ease;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: var(--cor-primaria);
+    font-size: 2rem;
+}
+
+/* REQUISITO 2: Estilização do Menu */
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin-left: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--cor-primaria);
+}
+
+/* --- NOVO: Estilo do Botão de Tema --- */
+#theme-toggle {
+    font-size: 1.5rem; /* Aumenta o emoji */
+    background: none;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    line-height: 1; /* Alinha o emoji verticalmente */
+    color: var(--cor-texto);
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    border-color: var(--cor-primaria);
+    background-color: var(--cor-fundo);
+}
+
+
+/* --- REQUISITO 6a: Organização Visual (Conteúdo Principal) --- */
+main {
+    padding: 2rem 0;
+}
+
+#produtos h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--cor-texto);
+}
+
+/* --- REQUISITO 3: Grade Responsiva (usando CSS Grid) --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* --- REQUISITO 4: Card de Produto (Estilização) --- */
+.product-card {
+    background: var(--cor-branca);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    /* ADIÇÃO: Transição suave para modo escuro e hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Efeito de flutuar */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 200px; /* Altura fixa para alinhar */
+    object-fit: cover; /* Evita distorção da imagem */
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.product-card h3 {
+    font-size: 1.5rem;
+    color: var(--cor-texto);
+    margin-bottom: 0.5rem;
+}
+
+.product-card .description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.product-card .price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--cor-secundaria); /* REQUISITO 6b: Cor agradável */
+    margin-bottom: 1.5rem;
+}
+
+.product-card button {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca); /* REQUISITO 7: Contraste adequado */
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+    background-color: #0056b3; /* Tom mais escuro do azul */
+}
+
+
+/* --- REQUISITO 5: Rodapé --- */
+footer {
+    background: #333;
+    color: var(--cor-branca);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    /* ADIÇÃO: Transição suave */
+    transition: background-color 0.3s ease;
+}
+
+/* --- REQUISITO 6c: Responsividade Mínima (Ajuste fino para celular) --- */
+@media (max-width: 600px) {
+    header .container {
+        /* Empilha o logo e o menu em telas pequenas */
+        flex-direction: column;
+        gap: 1rem; /* Adiciona espaço entre os itens empilhados */
+    }
+
+    header h1 {
+        margin-bottom: 0;
+    }
+
+    nav ul {
+        padding: 0; 
+        justify-content: center;
+    }
+
+    nav li {
+        margin: 0 0.5rem; 
+    }
+
+    #produtos h2 {
+        font-size: 2rem;
+    }
+}
+
+
+/*
+   --- NOVO: REQUISITO 2c - Estilos do Modo Escuro --- 
+   Quando o <body> tiver a classe 'dark-mode' (adicionada pelo JS),
+   essas variáveis vão sobrescrever as variáveis do :root.
+*/
+body.dark-mode {
+    --cor-fundo: #1a1a1a;        /* Fundo bem escuro */
+    --cor-texto: #f4f4f4;       /* Texto claro */
+    --cor-branca: #2c2c2c;      /* Cor dos cards e header */
+    --cor-borda: #444;          /* Borda dos cards e botão */
+}
+
+/* Ajuste fino para o modo escuro */
+body.dark-mode nav a {
+    color: var(--cor-texto); /* Garante que o link do menu fique claro */
+}
+
+body.dark-mode nav a:hover {
+    color: var(--cor-primaria); /* Mantém o hover azul */
+}
+
+body.dark-mode .product-card .description {
+    color: #aaa; /* Deixa a descrição um pouco mais escura que o texto principal */
+}
